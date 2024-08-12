@@ -1,0 +1,45 @@
+.landing_section{ 
+    margin-top: 10px;
+    color: white;
+    width: 100%;
+}
+.section_title{ 
+    padding:10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.section_title div { 
+    min-height: 55px;
+    display: flex;
+    transition: 400ms;
+}
+.section_title > div:hover{ 
+    color: orange;
+}
+.section_link{ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2vw;
+    height: 3vh;
+}
+.section_link img{ 
+    padding-left: 10px;
+    height: 100%;
+    width: 100%;
+}
+.section_title div p { 
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0px;
+}
+.section_description{ 
+    font-size: 20px;
+}
+.section_content{ 
+    background-color: #16151897;
+    backdrop-filter: blur(5px);
+    height: 55vh;
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
+}

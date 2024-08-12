@@ -1,0 +1,52 @@
+.card {
+    min-width: 25%;
+    margin-right: 16px;
+    height: 95%;
+    border-radius: 10px;
+    background-color: rgba(52, 52, 52, 0.452);
+    transition: box-shadow 600ms;
+    overflow: hidden;
+}
+.crad_image{ 
+    height: 60%;
+    overflow: hidden;
+}
+.crad_image > img{
+    width: 100%;
+    height: 100%;
+}
+.card_info{ 
+    height: 40%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    overflow: auto;
+    max-height: 190px;
+    overflow-y: auto;
+}
+.card_info::-webkit-scrollbar{
+    border-radius: 30px;
+    width: 3px;
+}
+.card_info::-webkit-scrollbar-track {
+    background: rgba(45, 48, 68, 0.692);
+}
+.card_info::-webkit-scrollbar-thumb{
+    background: rgba(135, 138, 160, 0.507);
+}
+.card_info  span{
+    display: block;
+    margin:10px;
+}
+.card_name{ 
+    font-size: 25px;
+}
+.card_desc{ 
+    height: fit-content;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.63);
+    
+}
+.card:hover{ 
+    box-shadow: 0 0 20px rgba(255, 166, 0, 0.274);
+    cursor: pointer;
+}

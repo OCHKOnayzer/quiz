@@ -1,0 +1,56 @@
+.slide_wrapper {
+    box-sizing: border-box;
+    flex: 0 1 20%; /* Добавить поддержку сжатия */
+    height: 25vh;
+    border-radius: 20px;
+    color: white;
+    background-color: #16151897;
+    backdrop-filter: blur(5px);
+    margin-left: 15px;
+    animation: borderLigth 2000ms linear infinite;
+    border: 1px solid;
+    width: 10%;
+    overflow: hidden;
+}
+.slide_content{ 
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position: relative;
+}
+.slide_content img{ 
+    height: 100%;
+    width: 100%;
+}
+@keyframes borderLigth{ 
+    0%{ 
+        border-color: rgba(255, 166, 0, 0.205);
+    }
+    20%{ 
+        border-color: rgba(255, 166, 0, 0.405);
+    }
+    40%{ 
+        border-color: rgba(255, 166, 0, 0.505);
+    }
+    60%{ 
+        border-color:  rgba(255, 166, 0, 0.605);
+    }
+    80%{ 
+        border-color: rgba(255, 166, 0, 0.901);
+    }
+    90%{ 
+        border-color: rgba(255, 166, 0, 0.505); 
+    }
+    100%{ 
+        border-color: rgba(255, 166, 0, 0.295);
+    }
+}
+.porgress_slide_conteiner{ 
+    display: flex;
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    justify-content: center;
+    z-index: 99999;
+}

@@ -5,8 +5,11 @@ import questionData from '../../others/questions_body.json';
 import questionTitle from '../../others/quest_title.json';
 import BackArrow from '../arrow/BackArrow';
 import Answers from '../../others/answers/Answers';
+import ProgressBar from '../progress/ProgressBar.jsx';
 
-const MyInput = ({ setMaxQuests ,setCurrentQuests }) => {
+const MyInput = () => {
+
+  const [quizId,setQuizId] = useState(0);
 
   const [questId, setQuestId] = useState(1);
 
@@ -20,10 +23,15 @@ const MyInput = ({ setMaxQuests ,setCurrentQuests }) => {
 
   const [result,setResult] = useState(false);
 
+  const [maxQuests,setMaxQuests] = useState();
+
+  const [currentQuets,setCurrentQuests] = useState()
+
   useEffect(() => {
     setNextBTN(false);
     setQuestId(1);
     setMaxQuests(questionData.length)
+    selectQuiz()
   }, []);
 
 
@@ -67,6 +75,7 @@ const MyInput = ({ setMaxQuests ,setCurrentQuests }) => {
   }else{ 
     return (
       <div className={classes.input_wrapper}>
+        <ProgressBar maxQuests={maxQuests} currentQuets={currentQuets}></ProgressBar>
         <BackArrow quest_id={questId} onBack={backQuest} />
         <div className={classes.wrapper_content}>
           <div className={classes.quest_title}>

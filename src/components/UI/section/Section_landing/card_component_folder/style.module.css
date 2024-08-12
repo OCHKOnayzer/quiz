@@ -1,0 +1,44 @@
+.section_content_wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.section_cards_container {
+    margin: 0 auto;
+    height: 100%;
+    width: 95%;
+    overflow: hidden;
+}
+.section_cards_wrapper {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+}
+.section_arrow {
+    cursor: pointer;
+    position: absolute;
+    z-index: 9999;
+    height: 100%;
+    width: 5%;
+    display: flex;
+    align-items: center;
+}
+.section_arrow span img{ 
+    width: 100%;
+}
+.arrow_right{ 
+    right: 1px;
+}
+.arrow_left span{ 
+    transform: rotate(180deg);
+}
+.block{ 
+    display: flex;
+}
+.none{ 
+    display: none;
+}

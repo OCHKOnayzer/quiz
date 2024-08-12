@@ -1,0 +1,19 @@
+.landing_wrapper{ 
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+}
+.landing_conteiner{ 
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 90%;
+}
+.widgets_wrapper {
+    display: flex;
+    height: fit-content;
+    width: 100%;
+}
