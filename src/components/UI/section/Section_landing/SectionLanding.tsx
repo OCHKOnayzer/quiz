@@ -1,21 +1,27 @@
-import React from 'react';
+import React,{FC} from 'react';
 import classes from './style.module.css';
-import Card_components from './card_component_folder/Card_components.jsx';
+import Card_components from './card_component_folder/Card_components';
 import link from './image/arrLink.svg';
 
-const SectionLanding = ( { children,children_description, section_id, childLink,section_category } ) => {
+type SectionLandingProps = {
+  title:string,
+  description:string,
+  section_category:string
+}
+
+const SectionLanding:FC<SectionLandingProps> = ({ title,description,section_category } ) => {
   return (
     <section className={classes.landing_section}> 
         <div className={classes.section_title}>
             <div>
                 <p>
-                    {children}
+                    {title}
                 </p>
                 <div className={classes.section_link}>
                     <img src={link}/>
                 </div>
             </div>
-            <span className={classes.section_description}>{children_description}</span>
+            <span className={classes.section_description}>{description}</span>
         </div>
         <div className={classes.section_content}>
           <Card_components section_category={section_category}/>

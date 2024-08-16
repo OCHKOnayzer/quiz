@@ -2,35 +2,47 @@ import React, { useState,useRef, useEffect} from 'react';
 import classes from './style.module.css';
 import arrow from '../image/arrow.svg';
 import QuizCards from './card/QuizCards';
-const Card_components = ({ section_category }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [visibilityLeft, setVisibilityLeft] = useState(false);
-  const [visibilityRight, setVisibilityRight] = useState(true);
-  const cardRef = useRef(null);
+
+type CardComponentsProps= { 
+  section_category:string
+}
+
+const Card_components = ({ section_category }:CardComponentsProps) => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [visibilityLeft, setVisibilityLeft] = useState<boolean>(false);
+  const [visibilityRight, setVisibilityRight] = useState<boolean>(true);
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(()=>{ 
     console.log(section_category)
   },[])
 
   useEffect(() => {
-    const maxIndex = cardRef.current.children.length - 4;
-    setVisibilityRight(currentIndex < maxIndex);
-    setVisibilityLeft(currentIndex > 0);
-    console.log(maxIndex)
+    if(cardRef.current){
+      const maxIndex = cardRef.current.children.length - 4;
+      setVisibilityRight(currentIndex < maxIndex);
+      setVisibilityLeft(currentIndex > 0);
+      console.log(maxIndex)
+    }
   }, [currentIndex]);
 
   const slideForward = () => {
-    const maxIndex = cardRef.current.children.length - 4;
-    if (currentIndex < maxIndex) {
-      setCurrentIndex(currentIndex + 1);
-      cardRef.current.style.transform = `translateX(-${(currentIndex + 1) * 500}px)`;
+    if(cardRef.current){
+      const maxIndex = cardRef.current.children.length - 4;
+      if (currentIndex < maxIndex) {
+        setCurrentIndex(currentIndex + 1);
+        cardRef.current.style.transform = `translateX(-${(currentIndex + 1) * 500}px)`;
+      }
     }
+    
   };
 
   const slideBack = () => {
-    if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
-      cardRef.current.style.transform = `translateX(-${(currentIndex - 1) * 500}px)`;
+    if(cardRef.current){ 
+      if (currentIndex > 0) {
+        setCurrentIndex(currentIndex - 1);
+        cardRef.current.style.transform = `translateX(-${(currentIndex - 1) * 500}px)`;
+      }
     }
   };
 

@@ -10,7 +10,7 @@ function App() {
     <div className={classes.App}>
       <Routes>
         <Route path='/' element={<Selected_quiz/>}/>
-        <Route path="/components/UI/form/MyInput.jsx" element={<MyInput/>}/> 
+        <Route path='/components/UI/form/MyInput.jsx' element={<MyInput/>}/> 
       </Routes>
       
     </div>

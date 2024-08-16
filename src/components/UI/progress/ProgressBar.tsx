@@ -1,14 +1,19 @@
 import React,{ useEffect, useState } from 'react'
 import classes from './style.module.css';
 
-const ProgressBar = ({ maxQuests,currentQuets }) => {
+type ProgressBarPorps = { 
+  maxQuests:number,
+  currentQuets: number
+}
 
-    const [progressWidth,setPorgressWidth] = useState(0); 
+const ProgressBar = ({ maxQuests,currentQuets }:ProgressBarPorps) => {
+
+    const [progressWidth,setPorgressWidth] = useState<number>(0); 
 
     useEffect(()=>{ 
-        const resultMath = currentQuets/maxQuests * 100 
+        const resultMath:number = currentQuets/maxQuests * 100 
         setPorgressWidth(resultMath)
-    },[currentQuets])
+    },[currentQuets,maxQuests])
     console.log(progressWidth)
 
   return (

@@ -14,8 +14,8 @@ const Selected_quiz = () => {
                 <Slides image1 = {slide1image1} image2 = {slide2image1}/>
                 <Slides image1 = {slide2image1} image2 = {slide1image1}/>
             </div>  
-            <SectionLanding children={'Мир разработки'} children_description={'Самые актуальные тесты на платформе'} section_category={'IT'}/>
-            <SectionLanding children={'Знание истории'} children_description={'Самые актуальные тесты на платформе'} section_category={'HISTORY'}/>
+            <SectionLanding title='Мир разработки' description={'Самые актуальные тесты на платформе'} section_category={'IT'}/>
+            <SectionLanding title='Знание истории' description={'Самые актуальные тесты на платформе'} section_category={'HISTORY'}/>
         </div>
     </div>
   )

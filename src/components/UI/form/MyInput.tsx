@@ -1,37 +1,45 @@
 import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import classes from './style.module.css';
 import NextArrow from '../arrow/NextArrow';
 import questionData from '../../others/questions_body.json';
 import questionTitle from '../../others/quest_title.json';
 import BackArrow from '../arrow/BackArrow';
 import Answers from '../../others/answers/Answers';
-import ProgressBar from '../progress/ProgressBar.jsx';
+import ProgressBar from '../progress/ProgressBar';
 
 const MyInput = () => {
 
-  const [quizId,setQuizId] = useState(0);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
 
-  const [questId, setQuestId] = useState(1);
+  const [gameId,setGameId] = useState<number>(parseInt(searchParams.get('id')||'0',10))
 
-  const [nextBTN, setNextBTN] = useState(false);
+  const [quizId,setQuizId] = useState<number>();
 
-  const [selected, setSelected] = useState(0);
+  const [questId, setQuestId] = useState<number>(0);
 
-  const [selectQuiz,setSelectQuiz] = useState([{}]);
+  const [selected, setSelected] = useState<number>(0);
+
+  const [nextBTN, setNextBTN] = useState<boolean>(false);
+
+  const [result,setResult] = useState<boolean>(false);
+
+  const [selectQuiz,setSelectQuiz] = useState<number>(0);
 
   const [toObject,setToObject] = useState({});
 
-  const [result,setResult] = useState(false);
+  const [maxQuests,setMaxQuests] = useState<number>(0);
 
-  const [maxQuests,setMaxQuests] = useState();
-
-  const [currentQuets,setCurrentQuests] = useState()
+  const [currentQuets,setCurrentQuests] = useState<number>(0)
 
   useEffect(() => {
+    setQuizId(1)
     setNextBTN(false);
-    setQuestId(1);
+   
     setMaxQuests(questionData.length)
-    selectQuiz()
+    // setSelectQuiz(1);
+    
   }, []);
 
 
@@ -39,13 +47,11 @@ const MyInput = () => {
     if(questionData.length===questId){ 
       console.log('hello world')
     }else{ 
-      setQuestId(questId + 1);
+      setQuestId(prev=> prev + 1);
       setNextBTN(false);
       setSelected(0);
       setCurrentQuests(questId)
-     
-      setQuestId(questId+1)
-      setSelectQuiz()
+      setSelectQuiz(0)
     }
   }
   const backQuest = () =>{ 
@@ -53,7 +59,7 @@ const MyInput = () => {
     setSelected(0)
   }
 
-  const selectedBtn = (id) => {
+  const selectedBtn = (id:number) => {
     if(questionData.length===questId){ 
       setNextBTN(false);
       setSelected(id);
@@ -90,11 +96,10 @@ const MyInput = () => {
           </div>
           <div className={classes.quests_item}>
             <div className={classes.quest_item__content}>
-              {Object.entries(currentQuestion.q).map(([key, value], index) => (
+              {Object.entries(currentQuestion.q).map(([key, value], index:number) => (
                 <div
                   key={key}
                   className={`${selected === index + 1 ? classes.selected : classes.notSelected}`}
-                  id={index + 1}
                   onClick={() => selectedBtn(index + 1)}
                 >
                   <div className={classes.quest_item__text}>
